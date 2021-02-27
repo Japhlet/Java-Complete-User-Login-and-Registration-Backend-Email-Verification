@@ -38,8 +38,8 @@ public class AppUserService implements UserDetailsService {
         //Check if user exists in the db
         boolean appUserExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
 
-        if(appUserExists) {
-            throw  new IllegalStateException("Email is taken");
+        if (appUserExists) {
+            throw new IllegalStateException("Email is taken");
         }
 
         String encodedPassword = bCryptPasswordEncoder.encode(appUser.getPassword());
@@ -64,5 +64,9 @@ public class AppUserService implements UserDetailsService {
         //TODO: Send Email
 
         return token;
+    }
+
+    public int enableAppUser(String email) {
+        return appUserRepository.enableAppUser(email);
     }
 }

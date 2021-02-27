@@ -41,6 +41,7 @@ public class ConfirmationToken {
             name = "app_user_id"
     )
     private AppUser appUser;
+    private LocalDateTime confirmedAt;
 
     public ConfirmationToken(
             String token,
