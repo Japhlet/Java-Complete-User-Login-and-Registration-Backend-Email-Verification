@@ -39,6 +39,8 @@ public class AppUserService implements UserDetailsService {
         boolean appUserExists = appUserRepository.findByEmail(appUser.getEmail()).isPresent();
 
         if (appUserExists) {
+            //TODO check if attributes are the same and
+            //TODO if email not confirmed, send confirmation email
             throw new IllegalStateException("Email is taken");
         }
 
